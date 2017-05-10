@@ -21,10 +21,13 @@
                         <div class="panel-body">
                             {{ $post->text }} <br> <br>
                             @if (Auth::guest())
-                                Log in om de schrijver te zien.
+                                Auteur: {{ $post->user->name }}
+                                <br>
+                                <a href="{{ url('/posts/' . $post->id)  }}"> <span id="Arrow_post" class="glyphicon glyphicon-circle-arrow-right icon-readmore"></span> </a>
+                                <form method="post" action='/post/{{$post->id}}'>
+
                             @else
                             Auteur: <strong>{{$post->user->name }}</strong>
-                            @endif
                             <br>
                             <a href="{{ url('/posts/' . $post->id)  }}"> <span id="Arrow_post" class="glyphicon glyphicon-circle-arrow-right icon-readmore"></span> </a>
                             <form method="post" action='/post/{{$post->id}}'>
@@ -35,15 +38,19 @@
                                 @endif
 
                             </form>
+                            @endif
+
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-        @if (Auth::user()->role == 0)
-            <div id="AlertBox" class="alert alert-info">
-                <strong>Info:</strong> om posts aan te kunnen maken en te verwijderen moet de role in de tabel: "users" 1 zijn! (Deze staat standaard op 0.)
-            </div>
+        @if(!Auth::guest())
+            @if (Auth::user()->role == 0)
+                <div id="AlertBox" class="alert alert-info">
+                    <strong>Info:</strong> om posts aan te kunnen maken en te verwijderen moet de role in de tabel: "users" 1 zijn! (Deze staat standaard op 0.)
+                </div>
+            @endif
         @endif
     </div>
 @endsection

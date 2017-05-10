@@ -26,19 +26,26 @@
                         <form method="POST" action="/posts/{{  $post->id }}/comments">
 
                             {{ csrf_field() }}
-
+                            @if (!Auth::guest())
                             <div class="form-group">
                                 <textarea name="body" placeholder="Reageer hier" class="form-control">
 
                                 </textarea>
                             </div>
 
+
                             <div class="form-group">
 
                                 <button id="submitButton" type="submit" class="btn btn-primary">Verstuur!</button>
 
                             </div>
+                            @endif
 
+                            @if (Auth::guest())
+                                <div id="AlertBox" class="alert alert-info">
+                                <strong>Log in om een reactie te plaatsen!</strong>
+                                </div>
+                            @endif
 
                         </form>
                     </div>
@@ -46,7 +53,7 @@
                         <div class="panel panel-default">
                         <div class="panel-heading">
                         @if (Auth::guest())
-                            <strong>Log in om de gebruiker te zien.</strong>
+                            <strong>Log in om de gebruiker te zien</strong>
                         @else
                         <strong>{{ Auth::user()->name }}</strong>
                         @endif
