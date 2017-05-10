@@ -41,13 +41,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
         $post = new Post;
         $post->user_id = Auth::id();
         $post->title = $request->title;
         $post->slug = str_slug($request->title);
         $post->text = $request->text;
         $post->save();
+
+        $posts = Post::all();
+
+//        return back();
+        return view('posts.index')->with(compact('posts'));
     }
 
     /**

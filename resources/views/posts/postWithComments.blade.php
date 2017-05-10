@@ -5,11 +5,11 @@
         <div class="col-md-4"> </div>
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">{{ $post->title }}</div>
+                <div class="panel-heading"><strong>{{ $post->title }}</strong></div>
                 <div class="panel-body">
                     {{ $post->text }}
                     <br> <br>
-                    Autheur: <strong>{{ Auth::user()->name }}</strong>
+                    Auteur: <strong>{{ $post->user->name }}</strong>
                 </div>
             </div>
         </div>

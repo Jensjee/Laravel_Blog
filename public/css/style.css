@@ -26,8 +26,24 @@
     margin-left:40%;
 }
 
+#deleteButton:hover {
+    background-color:#BBDEFB;
+    /*border-color: #BBDEFB;*/
+}
+
 #deleteButton {
-    margin-left:95%;
+    /*padding-top:3px;*/
+    /*padding-bottom:3px;*/
+    /*padding-left:6px;*/
+    margin-left:97%;
+    margin-top:-50%;
+    transform: scale(1.2);
+}
+
+#Arrow_post {
+    margin-top:2%;
+    margin-left:0.5%;
+    transform: scale(2.3);
 }
 
 

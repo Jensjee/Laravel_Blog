@@ -17,20 +17,21 @@
             @foreach($posts as $post)
                 <div class="col-md-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">{{ $post->title }}</div>
+                        <div class="panel-heading"><strong>{{ $post->title }}</strong></div>
                         <div class="panel-body">
                             {{ $post->text }} <br> <br>
                             @if (Auth::guest())
                                 Log in om de schrijver te zien.
                             @else
-                            Geschreven/aangemaakt door: {{ Auth::user()->name }}
+                            Auteur: <strong>{{$post->user->name }}</strong>
                             @endif
-                            <a href="{{ url('/posts/' . $post->id)  }}"> <span class="glyphicon glyphicon-circle-arrow-right icon-readmore"></span> </a>
+                            <br>
+                            <a href="{{ url('/posts/' . $post->id)  }}"> <span id="Arrow_post" class="glyphicon glyphicon-circle-arrow-right icon-readmore"></span> </a>
                             <form method="post" action='/post/{{$post->id}}'>
                                 {{ method_field('delete') }}
                                 {{ csrf_field() }}
                                 @if (Auth::user()->role == 1)
-                                    <button type="submit" id="deleteButton" class="glyphicon glyphicon-trash"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                    <button type="submit" id="deleteButton"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                 @endif
 
                             </form>
@@ -39,5 +40,10 @@
                 </div>
             @endforeach
         </div>
+        @if (Auth::user()->role == 0)
+            <div id="AlertBox" class="alert alert-info">
+                <strong>Info:</strong> om posts aan te kunnen maken en te verwijderen moet de role in de tabel: "users" 1 zijn! (Deze staat standaard op 0.)
+            </div>
+        @endif
     </div>
 @endsection
