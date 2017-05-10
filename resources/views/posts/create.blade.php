@@ -32,7 +32,6 @@
                                     </span>
                         @endif
                     </div>
-
                 </div>
                 <button id="buttonSubmit" type="submit" class="btn">Aanmaken</button>
             </form>

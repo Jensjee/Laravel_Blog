@@ -24,6 +24,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::resource('posts', 'PostController');
 Route::post('/posts/{post}/comments', 'CommentsController@store');
+Route::delete('/post/{post}', 'PostController@destroy');
 
 
 

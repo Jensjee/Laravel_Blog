@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
+    {{--<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>--}}
+    {{--<script>tinymce.init({ selector:'textarea' });</script>--}}
+    {{--<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=q6fhnq6mnndirr0iy7ax0gnnhga800lev9prc5cp3cy5gdd7"></script>--}}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +20,7 @@
 
     <!-- Scripts -->
     <script>
+
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
@@ -63,9 +67,11 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+
                                     <li><a href="{{ url('posts') }}">Posts</a></li>
-                                    {{--@if {{ Auth::user()->role == 0 }}--}}
+                                    @if (Auth::user()->role == 1)
                                     <li><a href="{{ url('posts/create') }}">Create Posts</a></li>
+                                    @endif
 
 
 
@@ -93,5 +99,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    {{--<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>--}}
+    {{--<script>tinymce.init({ selector:'textarea' });</script>--}}
+    {{--<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=q6fhnq6mnndirr0iy7ax0gnnhga800lev9prc5cp3cy5gdd7"></script>--}}
+
+
 </body>
 </html>

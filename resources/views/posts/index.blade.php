@@ -8,7 +8,7 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div id="h1text" class="jumbotron">
-                        <h1>Djenzos Gekke Blog</h1>
+                        <h1>Blog van Jens Slauerhoff</h1>
                     </div>
                 </div>
             </div>
@@ -26,6 +26,14 @@
                             Geschreven/aangemaakt door: {{ Auth::user()->name }}
                             @endif
                             <a href="{{ url('/posts/' . $post->id)  }}"> <span class="glyphicon glyphicon-circle-arrow-right icon-readmore"></span> </a>
+                            <form method="post" action='/post/{{$post->id}}'>
+                                {{ method_field('delete') }}
+                                {{ csrf_field() }}
+                                @if (Auth::user()->role == 1)
+                                    <button type="submit" id="deleteButton" class="glyphicon glyphicon-trash"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                @endif
+
+                            </form>
                         </div>
                     </div>
                 </div>

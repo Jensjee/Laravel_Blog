@@ -8,6 +8,8 @@
                 <div class="panel-heading">{{ $post->title }}</div>
                 <div class="panel-body">
                     {{ $post->text }}
+                    <br> <br>
+                    Autheur: <strong>{{ Auth::user()->name }}</strong>
                 </div>
             </div>
         </div>

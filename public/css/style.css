@@ -19,12 +19,15 @@
 }
 
 #buttonSubmit {
-    margin-left:55%;
+    margin-left:54%;
 }
 
 #submitButton {
     margin-left:40%;
 }
 
+#deleteButton {
+    margin-left:95%;
+}
 
 
