@@ -1,0 +1,30 @@
+
+.navbar-default {
+    background-color: #bbdefb!important;
+}
+
+.panel-default>.panel-heading {
+    background-color: #bbdefb!important;
+}
+
+#h1text {
+    color:grey;
+    /*background-color: #e1f5fe;*/
+    margin-bottom:0;
+
+}
+
+.panel panel-default {
+    background-color: #e1f5fe;
+}
+
+#buttonSubmit {
+    margin-left:55%;
+}
+
+#submitButton {
+    margin-left:40%;
+}
+
+
+
